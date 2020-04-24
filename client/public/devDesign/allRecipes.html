@@ -33,79 +33,22 @@
                 </div>
             </div>
         </nav>
-        <!-- Head-->
-        <header class="masthead">
-            <div class="container">
-                <div class="masthead-heading text-uppercase">Table Scraps</div>
-                <div class="masthead-subheading">The recipe costing app designed to reduce food waste for your business.</div>
-                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#learn">Learn More</a>
-            </div>
-        </header>
-        <!-- About-->
-        <section class="page-section bg-light" id="learn">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">About</h2>
-                    <h3 class="section-subheading text-muted">Screenshots of functionality</h3>
-                </div>
-                <div class="row text-center">
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x"><i class="fas fa-circle fa-stack-2x text-primary"></i><i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i></span>
-                        <h4 class="my-3">Create New Recipe</h4>
-                        <p class="text-muted">Cost your recipes down to the gram.</p>
-                    </div>
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x"><i class="fas fa-circle fa-stack-2x text-primary"></i><i class="fas fa-laptop fa-stack-1x fa-inverse"></i></span>
-                        <h4 class="my-3">Store All Recipes</h4>
-                        <p class="text-muted">Create an online database of all your store's recipes, and change the yield on demand.</p>
-                    </div>
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x"><i class="fas fa-circle fa-stack-2x text-primary"></i><i class="fas fa-lock fa-stack-1x fa-inverse"></i></span>
-                        <h4 class="my-3">Share Recipes With Your Team</h4>
-                        <p class="text-muted">Export your recipes to excel or invite your teammates with one click.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Create a Recipe-->
-        <section class="page-section" id="create">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Create a New Recipe</h2>
-                    <h3 class="section-subheading text-muted">Create a new recipe and add it to your book.</h3>
-                </div>
-                <form>
-                    <div class="form-group">
-                      <label for="exampleFormControlInput1">Email address</label>
-                      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleFormControlSelect1">Example select</label>
-                      <select class="form-control" id="exampleFormControlSelect1">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleFormControlSelect2">Example multiple select</label>
-                      <select multiple class="form-control" id="exampleFormControlSelect2">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleFormControlTextarea1">Example textarea</label>
-                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    </div>
-                  </form>
-            </div>
-        </section>
+    <!-- side nav -->
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
+        </div>
+        
+        <!-- Use any element to open the sidenav -->
+        <span onclick="openNav()">open</span>
+        
+        <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+        <div id="main">
+        ...
+    </div>
         <!-- Your Recipes-->
         <section class="page-section bg-light" id="portfolio">
             <div class="container">
@@ -251,9 +194,8 @@
                 </div>
             </div>
         </div>
-
-        <script src="/index.js"></script>
+        
+        <script src="/allRecipes.js"></script>
         <script src="/db.js"></script>
-
     </body>
 </html>

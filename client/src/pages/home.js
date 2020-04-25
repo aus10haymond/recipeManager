@@ -12,6 +12,7 @@ function Home() {
                 <br />
             <About />
 
+
         </div>
     );
 }

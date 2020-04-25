@@ -13,6 +13,9 @@ function HomeJumbo() {
             <Login />
                 <br />
             <Signup />
+                <br />
+            <a class="btn btn-primary" href="/recipe/create" role="button">ENTER</a>
+
         </div>
     );
 }

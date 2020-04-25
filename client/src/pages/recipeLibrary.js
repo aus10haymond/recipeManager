@@ -15,7 +15,7 @@ function Library() {
                 
                   <RecipeCard />
                   <RecipeCard />
-                  <RecipeCard />
+
             </div>
         </div>
     );

@@ -18,24 +18,29 @@ function SideBar() {
                         <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} />
                     </NavIcon>
                     <NavText>
-                        Home
+                        New Recipe
             </NavText>
                 </NavItem>
-                <NavItem eventKey="charts">
+                <NavItem eventKey="Recipe">
                     <NavIcon>
                         <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em' }} />
                     </NavIcon>
                     <NavText>
-                        Charts
+                        Recipe
             </NavText>
-                    <NavItem eventKey="charts/linechart">
+                    <NavItem eventKey="Recipe/edit">
                         <NavText>
-                            Line Chart
+                            Edit Recipe
                 </NavText>
                     </NavItem>
-                    <NavItem eventKey="charts/barchart">
+                    <NavItem eventKey="Recipe/export">
                         <NavText>
-                            Bar Chart
+                            Export to Excel
+                </NavText>
+                    </NavItem>
+                    <NavItem eventKey="Recipe/print">
+                        <NavText>
+                            Print Nutrition Info
                 </NavText>
                     </NavItem>
                 </NavItem>

@@ -9,7 +9,9 @@ function HomeJumbo() {
         
         <div className="jumbotron">
             <h1 className="display-4">TABLE SCRAPS</h1>
+                <br />
             <Login />
+                <br />
             <Signup />
         </div>
     );

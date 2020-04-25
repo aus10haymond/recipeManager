@@ -8,7 +8,8 @@ function Home() {
     return(
         <div className="container">
             <HomeJumbo />
-            <hr />
+                <hr />
+                <br />
             <About />
 
         </div>

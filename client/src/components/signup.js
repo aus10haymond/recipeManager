@@ -4,7 +4,26 @@ function Signup() {
 
     return(
         <div>
-            <h1>SIGNUP FORM</h1>
+            <h3>Signup</h3>
+                <form>
+                    <div className="form-group">
+                        <label>Email address</label>
+                        <input type="email" className="form-control" />
+                    </div>
+                    <div className="form-group">
+                        <label>Confirm Email</label>
+                        <input type="email" className="form-control" />
+                    </div>
+                    <div className="form-group">
+                        <label>Password</label>
+                        <input type="password" className="form-control" />
+                    </div>
+                    <div className="form-group">
+                        <label>Confirm Password</label>
+                        <input type="password" className="form-control" />
+                    </div>
+                    <button type="submit" className="btn btn-primary">Submit</button>
+                </form>
         </div>
     );
 }

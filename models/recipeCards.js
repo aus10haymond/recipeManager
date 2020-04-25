@@ -2,10 +2,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const RecipeCardSchema = new Schema({
-  recipes: [{
+  breakdown: [{
     item: {type: String},
-    weight: {type: Number},
-    price: {type: Number},
+    quantity: {type: Number},
+    cost: {type: Number},
   }]
 });
 

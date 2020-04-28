@@ -9,23 +9,23 @@ function apiRoutes(app) {
     });
   });
 
-  // app.post("/api/books", function (req, res) {
-  //   const newBook = req.body
+  // app.post("/api/recipes", function (req, res) {
+  //   const newRecipe = req.body
   //   console.log(newBook);
-  //   db.Book.create(newBook).then(function (results) {
+  //   db.Recipe.create(newRecipe).then(function (results) {
   //     res.json(results);
   //   });
   // });
 
-  // app.delete("/api/books/:id", function (req, res) {
+  // app.delete("/api/recipe/:id", function (req, res) {
   //   const id = req.params.id
-  //   db.Book.remove({ _id: id }).then(function (results) {
+  //   db.Recipe.remove({ _id: id }).then(function (results) {
   //     res.json(results);
   //   });
   // });
 
-  // app.get("/api/savedBooks", function (req, res) {
-  //   db.Book.find().then(function (results) {
+  // app.get("/api/savedRecipe", function (req, res) {
+  //   db.Recipe.find().then(function (results) {
   //     res.json(results);
   //   });
   // });

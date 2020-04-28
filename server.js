@@ -1,6 +1,6 @@
 // this is where we want to require dependencies
 const express = require("express");
-const routes = require("./routes");
+const routes = require("./routes/apiRoutes");
 const mongoose = require("mongoose");
 const app = express();
 
@@ -15,7 +15,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 // Add routes, both API and view
-app.use(routes);
+routes(app);
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/recipeManager");

@@ -7,6 +7,8 @@ import Library from "./pages/recipeLibrary";
 import NoPage from "./pages/noPage";
 import Login2 from "./components/Login2"
 
+import "./App.css"
+
 function App() {
     return (
         <BrowserRouter>

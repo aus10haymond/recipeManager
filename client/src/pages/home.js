@@ -16,6 +16,7 @@ function Home() {
             <Pricing />
                 <br />
             <Contact />
+                <br />
 
         </div>
     );

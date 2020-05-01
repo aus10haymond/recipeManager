@@ -55,7 +55,6 @@ function Create() {
   //nutritional info per serving
   //steps (one long string or individually by step one, two etc.)
   //servings
-
   //Models:
   //Recipe.js
   //Ingredient.js: name, brand, cost, all nutritional info, size/weight
@@ -74,7 +73,6 @@ function Create() {
       <SideBar />
       <div className="container">
         <NavBar />
-
         <section className="page-section" id="create">
           <div className="container">
             <div className="text-center">

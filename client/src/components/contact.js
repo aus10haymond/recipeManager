@@ -9,7 +9,7 @@ function Contact() {
                 <div className="container">
                     <div className="text-center">
                         <h2 className="section-heading text-uppercase">Contact</h2>
-                        <h3 className="section-subheading text-muted">Choose what works best for your company's needs</h3>
+                        <h3 className="section-subheading text-muted">Write to us</h3>
                     </div>
 
                     <div className="container">
@@ -17,7 +17,6 @@ function Contact() {
                             <div className="col-md-3" />
                             <div className="col-md-6">
                                 <form>
-                                    <p className="h5 text-center mb-4">Write to us</p>
                                     <div className="grey-text">
                                         <div classname="form-group">
                                             <label>Your Name</label>

@@ -57,7 +57,7 @@ function Login() {
               id="exampleCheck1"
             />
             <label className="form-check-label" htmlFor="exampleCheck1">
-              Check me out
+              Remember Me
             </label>
           </div>
           <button type="submit" className="btn btn-primary" disabled={!email || !password}>

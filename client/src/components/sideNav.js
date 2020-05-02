@@ -1,47 +1,59 @@
 import React from "react";
 import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
+import { Link, useLocation } from "react-router-dom";
 
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 
 function SideBar() {
 
+    const location = useLocation();
+    
+
     return (
         <SideNav
             onSelect={(selected) => {
-                // Add your code here
+                const to = "/" + selected;
+                window.location.pathname = to;
+                console.log(to);
+                console.log(location);
             }}
         >
             <SideNav.Toggle />
-            <SideNav.Nav defaultSelected="home">
-                <NavItem eventKey="home">
+            <SideNav.Nav>
+                <NavItem eventKey="recipe/create">
                     <NavIcon>
                         <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} />
                     </NavIcon>
                     <NavText>
                         New Recipe
-            </NavText>
+                    </NavText>
                 </NavItem>
-                <NavItem eventKey="Recipe">
+                <NavItem eventKey="recipe/library">
                     <NavIcon>
-                        <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em' }} />
+                        <i className="fa fa-fw fa-list-alt" style={{ fontSize: '1.75em' }} />
                     </NavIcon>
                     <NavText>
-                        Recipe
-            </NavText>
-                    <NavItem eventKey="Recipe/edit">
+                        Recipe Library
+                    </NavText>
+                    <NavItem eventKey="recipe/library">
                         <NavText>
-                            Edit Recipe
-                </NavText>
+                            View Library
+                        </NavText>
                     </NavItem>
-                    <NavItem eventKey="Recipe/export">
+                    <NavItem eventKey="recipe/edit">
+                        <NavText>
+                            Edit Recipes
+                        </NavText>
+                    </NavItem>
+                    <NavItem eventKey="recipe/export">
                         <NavText>
                             Export to Excel
-                </NavText>
+                        </NavText>
                     </NavItem>
-                    <NavItem eventKey="Recipe/print">
+                    <NavItem eventKey="recipe/print">
                         <NavText>
                             Print Nutrition Info
-                </NavText>
+                        </NavText>
                     </NavItem>
                 </NavItem>
             </SideNav.Nav>

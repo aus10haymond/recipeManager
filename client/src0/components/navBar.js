@@ -4,21 +4,6 @@ import { Link, useLocation } from "react-router-dom";
 function NavBar() {
 
     const location = useLocation();
-    // const link = document.getElementById("logout");
-    // const locationUrl = location.pathname;
-
-
-    // if (locationUrl === "/login" || locationUrl === "/signup") {
-    //     link.innerText = "Return to Home";
-    // }
-
-    // if (locationUrl === "/") {
-    //     link.innerText = "";
-    // }
-
-    // else {
-    //     link.innerText = "Logout"
-    // }
 
     return (
         <div>
@@ -29,11 +14,12 @@ function NavBar() {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div className="navbar-nav">
-                        <Link to="/" className="navlink active" id="logout" ></Link>
-                </div>
+                        <Link to="/recipe/create" className={location.pathname === "/recipe/create" ? "navlink active" : "nav-link"}>Create Recipe</Link>
+                        <Link to="/recipe/library" className={location.pathname === "/recipe/library" ? "navlink active" : "nav-link"}>Recipe Library</Link>
+                    </div>
                 </div>
             </nav>
-        </div >
+        </div>
     );
 }
 

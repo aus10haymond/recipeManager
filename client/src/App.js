@@ -8,6 +8,7 @@ import NoPage from "./pages/noPage";
 import Login2 from "./components/Login2"
 
 import "./App.css"
+import Signup from "./components/signup";
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                 <Route exact path="/recipe/create" component={Create} />
                 <Route exact path="/recipe/library" component={Library} />
                 <Route exact path="/login2" component={Login2} />
+                <Route exact path="/signup" component={Signup} />
                 <Route component={NoPage} />
             </Switch>
         </BrowserRouter>

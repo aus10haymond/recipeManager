@@ -14,50 +14,36 @@ function Contact() {
 
                     <div className="container">
                         <div className="row text-center">
+                            <div className="col-md-3" />
                             <div className="col-md-6">
                                 <form>
                                     <p className="h5 text-center mb-4">Write to us</p>
                                     <div className="grey-text">
-                                        <input
-                                            label="Your name"
-                                            icon="user"
-                                            group
-                                            type="text"
-                                            validate
-                                            error="wrong"
-                                            success="right"
-                                        />
-                                        <input
-                                            label="Your email"
-                                            icon="envelope"
-                                            group
-                                            type="email"
-                                            validate
-                                            error="wrong"
-                                            success="right"
-                                        />
-                                        <input
-                                            label="Subject"
-                                            icon="tag"
-                                            group
-                                            type="text"
-                                            validate
-                                            error="wrong"
-                                            success="right"
-                                        />
-                                        <input
-                                            type="textarea"
-                                            rows="2"
-                                            label="Your message"
-                                            icon="pencil-alt"
-                                        />
+                                        <div classname="form-group">
+                                            <label>Your Name</label>
+                                            <input className="form-control" type="text" placeholder="John Smith" />
+                                        </div>
+                                        <div classname="form-group">
+                                            <label for="email">Email address</label>
+                                            <input type="email" className="form-control" id="email" placeholder="name@example.com" />
+                                        </div>
+                                        <div classname="form-group">
+                                            <label>Subject</label>
+                                            <input className="form-control" type="text" placeholder="Table Scraps" />
+                                        </div>
+                                        <div classname="form-group">
+                                            <label>Your Name</label>
+                                            <textarea className="form-control" rows="4" />
+                                        </div>
                                     </div>
+                                    <br />
                                     <div className="text-center">
                                         <button outline color="secondary">
                                             Send
                                                 <icon far icon="paper-plane" className="ml-1" />
                                         </button>
                                     </div>
+                                    <br />
                                 </form>
                             </div>
                         </div>

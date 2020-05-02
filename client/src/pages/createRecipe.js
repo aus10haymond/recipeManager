@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import NavBar from "../components/navBar";
-import Sidebar from "../components/sideNav";
 import SideBar from "../components/sideNav";
-
 import API from "../utils/API";
 
 function Create() {

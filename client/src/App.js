@@ -5,7 +5,7 @@ import Home from "./pages/home";
 import Create from "./pages/createRecipe";
 import Library from "./pages/recipeLibrary";
 import NoPage from "./pages/noPage";
-import Login from "./components/Login"
+import Login from "./components/login"
 
 import "./App.css"
 import Signup from "./components/signup";

@@ -2,7 +2,7 @@ import React from "react";
 import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import { Link, useLocation } from "react-router-dom";
 
-import '@trendmicro/react-sidenav/dist/react-sidenav.css';
+import "../assets/css/sideNav.css";
 
 function UserNav() {
 

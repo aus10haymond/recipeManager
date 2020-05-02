@@ -30,7 +30,7 @@ function UserNav() {
                 </NavItem>
                 <NavItem eventKey="signup">
                     <NavIcon>
-                        <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em' }} />
+                        <i className="fa fa-fw fa-sign-in" style={{ fontSize: '1.75em' }} />
                     </NavIcon>
                     <NavText>
                         Sign Up

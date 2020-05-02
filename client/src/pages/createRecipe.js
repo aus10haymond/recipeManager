@@ -81,21 +81,21 @@ function Create() {
                 Create a new recipe and add it to your book.
               </h3>
             </div>
-            <table>
+            <table className="table table-hover">
               <thead>
                 <tr>
-                  <th>Name</th>
-                  <th>Brand</th>
-                  <th>Total Weight</th>
-                  <th>Total Cost</th>
-                  <th>Weight in Recipe (grams)</th>
-                  <th>Weight %</th>
-                  <th>Cost in Recipe</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Brand</th>
+                  <th scope="col">Total Weight</th>
+                  <th scope="col">Total Cost</th>
+                  <th scope="col">Weight in Recipe (grams)</th>
+                  <th scope="col">Weight %</th>
+                  <th scope="col">Cost in Recipe</th>
                 </tr>
               </thead>
               <tbody>
                 {currentIngredients.map((ingredient, i) => (
-                  <tr key={i}>
+                  <tr scope="row" key={i}>
                     <td>
                       {ingredient.name}
                     </td>

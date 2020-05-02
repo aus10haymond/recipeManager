@@ -9,7 +9,7 @@ function Contact() {
                 <div className="container">
                     <div className="text-center">
                         <h2 className="section-heading text-uppercase">Contact</h2>
-                        <h3 className="section-subheading text-muted">Write to us</h3>
+                        <h3 className="section-subheading text-muted">Any Questions? We're here to talk.</h3>
                     </div>
 
                     <div className="container">

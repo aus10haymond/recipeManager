@@ -8,8 +8,8 @@ function Contact() {
             <section className="page-section bg-light" id="learn">
                 <div className="container">
                     <div className="text-center">
-                        <h2 className="section-heading text-uppercase">Pricing</h2>
-                        <h3 className="section-subheading text-muted">Choose what works best for your company's needs</h3>
+                        <h2 className="section-heading text-uppercase">Contact</h2>
+                        <h3 className="section-subheading text-muted">Any Questions? We're here to talk.</h3>
                     </div>
 
                     <div className="container">

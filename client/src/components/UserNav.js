@@ -10,7 +10,7 @@ function UserNav() {
     
 
     return (
-        <SideNav
+        <SideNav style={{position: "fixed"}}
             onSelect={(selected) => {
                 const to = "/" + selected;
                 window.location.pathname = to;

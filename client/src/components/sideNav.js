@@ -10,7 +10,7 @@ function SideBar() {
     
 
     return (
-        <SideNav
+        <SideNav style={{position: "fixed"}}
             onSelect={(selected) => {
                 const to = "/" + selected;
                 window.location.pathname = to;
@@ -55,6 +55,14 @@ function SideBar() {
                             Print Nutrition Info
                         </NavText>
                     </NavItem>
+                </NavItem>
+                <NavItem eventKey="home">
+                    <NavIcon>
+                        <i className="fa fa-fw fa-cogs" style={{ fontSize: '1.75em' }} />
+                    </NavIcon>
+                    <NavText>
+                        Logout
+                    </NavText>
                 </NavItem>
             </SideNav.Nav>
         </SideNav>

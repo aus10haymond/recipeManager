@@ -32,13 +32,13 @@ function Contact() {
                                             <input className="form-control" type="text" placeholder="Table Scraps" />
                                         </div>
                                         <div classname="form-group">
-                                            <label>Your Name</label>
-                                            <textarea className="form-control" rows="4" />
+                                            <label>Message</label>
+                                            <textarea className="form-control" rows="4" placeholder="Your message here..."/>
                                         </div>
                                     </div>
                                     <br />
                                     <div className="text-center">
-                                        <button outline color="secondary">
+                                        <button  className="btn btn-primary" outline color="secondary">
                                             Send
                                                 <icon far icon="paper-plane" className="ml-1" />
                                         </button>

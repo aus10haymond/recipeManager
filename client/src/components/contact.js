@@ -17,7 +17,6 @@ function Contact() {
                             <div className="col-md-3" />
                             <div className="col-md-6">
                                 <form>
-                                    <p className="h5 text-center mb-4">Write to us</p>
                                     <div className="grey-text">
                                         <div classname="form-group">
                                             <label>Your Name</label>

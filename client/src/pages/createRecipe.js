@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import NavBar from "../components/navBar";
 import SideBar from "../components/sideNav";
 import API from "../utils/API";
+import ExportCSV from "../components/exportCSV";
+
 
 function Create() {
   //console.log("api key", process.env.FOOD_DATA_APIKEY)
@@ -81,7 +83,8 @@ function Create() {
                 Create a new recipe and add it to your book.
               </h3>
             </div>
-            <table className="table table-hover">
+            <ExportCSV csvData={currentIngredients} fileName={"exportedRecipe"} />
+            <table id="excelTable" className="table table-hover">
               <thead>
                 <tr>
                   <th scope="col">Name</th>

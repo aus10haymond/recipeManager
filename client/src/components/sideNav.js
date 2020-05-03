@@ -56,7 +56,7 @@ function SideBar() {
                         </NavText>
                     </NavItem>
                 </NavItem>
-                <NavItem eventKey="home">
+                <NavItem eventKey="">
                     <NavIcon>
                         <i className="fa fa-fw fa-cogs" style={{ fontSize: '1.75em' }} />
                     </NavIcon>

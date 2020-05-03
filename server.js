@@ -18,7 +18,7 @@ if (process.env.NODE_ENV === "production") {
 routes(app);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/recipeManager");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/ingredientDB");
 
 // Start the API server
 app.listen(PORT, function() {

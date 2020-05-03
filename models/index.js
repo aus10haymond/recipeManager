@@ -1,3 +1,3 @@
 module.exports = {
-  recipeManager: require("./recipeCards")
+  Ingredient: require("./Ingredients")
 };

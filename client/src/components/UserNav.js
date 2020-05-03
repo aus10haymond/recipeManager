@@ -2,7 +2,7 @@ import React from "react";
 import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import { Link, useLocation } from "react-router-dom";
 
-import '@trendmicro/react-sidenav/dist/react-sidenav.css';
+import "../assets/css/sideNav.css";
 
 function UserNav() {
 
@@ -10,7 +10,7 @@ function UserNav() {
     
 
     return (
-        <SideNav
+        <SideNav style={{position: "fixed"}}
             onSelect={(selected) => {
                 const to = "/" + selected;
                 window.location.pathname = to;
@@ -30,7 +30,7 @@ function UserNav() {
                 </NavItem>
                 <NavItem eventKey="signup">
                     <NavIcon>
-                        <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em' }} />
+                        <i className="fa fa-fw fa-sign-in" style={{ fontSize: '1.75em' }} />
                     </NavIcon>
                     <NavText>
                         Sign Up

@@ -25,7 +25,8 @@ function Login2() {
             <input
               type="email"
               className="form-control"
-              id="exampleInputEmail1"
+              id="emailInput"
+              name="email"
               aria-describedby="emailHelp"
               value={email}
               onChange={event=>setEmail(event.target.value)}
@@ -39,7 +40,8 @@ function Login2() {
             <input
               type="password"
               className="form-control"
-              id="exampleInputPassword1"
+              id="passwordInput"
+              name="password"
               value={password}
               onChange={event=>setPassword(event.target.value)}
             />

@@ -7,4 +7,10 @@ export default {
     getIngredients: function(query){
         return axios.get(`https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${APIKEY}&query=${query}`)
     },
+    saveIngredients: function(data){
+        return axios.post("/api/submit/many", data);
+    },
+    getSavedIngredients: function(){
+        return axios.get("/api/all");
+    }
 }

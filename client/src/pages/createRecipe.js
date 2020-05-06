@@ -14,6 +14,8 @@ function Create() {
 
   useEffect(() => {
     if (newInput) {
+      //API get call to /api/all
+
       API.getIngredients(newInput).then((res) => {
         console.log(res.data.foods);
         setIngredientRes(res.data.foods.slice(0, 20));
@@ -25,11 +27,11 @@ function Create() {
     let ingredientsCopy = [...currentIngredients];
 
     let totalWeight = 0;
-    ingredientsCopy.forEach(ingredient=>{
-      totalWeight = totalWeight + ingredient.weightInRecipe
-    })
+    ingredientsCopy.forEach((ingredient) => {
+      totalWeight = totalWeight + ingredient.weightInRecipe;
+    });
 
-    totalWeight = console.log("total weight = " + totalWeight)
+    totalWeight = console.log("total weight = " + totalWeight);
 
     //setCurrentIngredients(ingredientsCopy);
   }, [currentIngredients]);
@@ -42,7 +44,7 @@ function Create() {
       totalWeight: "",
       totalCost: "",
       weightInRecipe: "",
-      costInRecipe: ""
+      costInRecipe: "",
     };
 
     setCurrentIngredients([...currentIngredients, newIngredient]);
@@ -58,11 +60,10 @@ function Create() {
     ingredientsCopy[index][name] = value;
     // ingredientsCopy[index]["totalWeight"]
     // ingredientsCopy[index].totalWeight
-    
-    ingredientsCopy[index].costInRecipe = (ingredientsCopy[index].totalCost /
-      ingredientsCopy[index].totalWeight) *
-      ingredientsCopy[index].weightInRecipe;
 
+    ingredientsCopy[index].costInRecipe =
+      (ingredientsCopy[index].totalCost / ingredientsCopy[index].totalWeight) *
+      ingredientsCopy[index].weightInRecipe;
 
     setCurrentIngredients(ingredientsCopy);
   };
@@ -74,6 +75,18 @@ function Create() {
     ingredientsCopy.splice(index, 1);
 
     setCurrentIngredients(ingredientsCopy);
+  };
+
+  const saveRecipe = (event) => {
+    event.preventDefault();
+    API.saveIngredients(currentIngredients)
+      .then(res=>{
+        console.log("did post")
+        window.location.replace("/recipe/library")
+      })
+      .catch(err=>{
+        console.log(err)
+      })
   };
 
   //gonna be made in this card:
@@ -114,66 +127,77 @@ function Create() {
               csvData={currentIngredients}
               fileName={"exportedRecipe"}
             />
-            <table id="excelTable" className="table table-hover">
-              <thead>
-                <tr>
-                  <th scope="col">Ingredient Name</th>
-                  <th scope="col">Ingredient Brand</th>
-                  <th scope="col">Ingredient Total Weight (grams)</th>
-                  <th scope="col">Ingredient Total Cost</th>
-                  <th scope="col">Weight in Recipe (grams)</th>
-                  <th scope="col">Weight % in Recipe</th>
-                  <th scope="col">Cost in Recipe</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                {currentIngredients.map((ingredient, i) => (
-                  <tr scope="row" key={i}>
-                    <td>{ingredient.name}</td>
-                    <td>{ingredient.brand}</td>
-                    <td>
-                      <input
-                        id={i}
-                        name={"totalWeight"}
-                        value={currentIngredients[i].totalWeight}
-                        onChange={addStuffToIngredient}
-                      />
-                    </td>
-                    <td>
-                      <input
-                        id={i}
-                        name={"totalCost"}
-                        value={currentIngredients[i].totalCost}
-                        onChange={addStuffToIngredient}
-                      />
-                    </td>
-                    <td>
-                      <input
-                        id={i}
-                        name={"weightInRecipe"}
-                        value={currentIngredients[i].weightInRecipe}
-                        onChange={addStuffToIngredient}
-                      />
-                    </td>
-                    <td></td>
-                    <td>
-                      {ingredient.costInRecipe}
-                    </td>
-                    <td>
-                      <span id={i} onClick={deleteIngredient} style={{ color: "red", cursor: "pointer" }}>
-                        X
-                      </span>
-                    </td>
-                  </tr>
-                ))}
-                <tr></tr>
-              </tbody>
-            </table>
-            <button>Save Recipe to Library</button>
+            {currentIngredients.length !== 0 ? (
+              <>
+                <table id="excelTable" className="table table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">Ingredient Name</th>
+                      <th scope="col">Ingredient Brand</th>
+                      <th scope="col">Ingredient Total Weight (grams)</th>
+                      <th scope="col">Ingredient Total Cost</th>
+                      <th scope="col">Weight in Recipe (grams)</th>
+                      <th scope="col">Weight % in Recipe</th>
+                      <th scope="col">Cost in Recipe</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {currentIngredients.map((ingredient, i) => (
+                      <tr scope="row" key={i}>
+                        <td>{ingredient.name}</td>
+                        <td>{ingredient.brand}</td>
+                        <td>
+                          <input
+                            id={i}
+                            name={"totalWeight"}
+                            value={currentIngredients[i].totalWeight}
+                            onChange={addStuffToIngredient}
+                          />
+                        </td>
+                        <td>
+                          <input
+                            id={i}
+                            name={"totalCost"}
+                            value={currentIngredients[i].totalCost}
+                            onChange={addStuffToIngredient}
+                          />
+                        </td>
+                        <td>
+                          <input
+                            id={i}
+                            name={"weightInRecipe"}
+                            value={currentIngredients[i].weightInRecipe}
+                            onChange={addStuffToIngredient}
+                          />
+                        </td>
+                        <td></td>
+                        <td>{ingredient.costInRecipe}</td>
+                        <td>
+                          <span
+                            id={i}
+                            onClick={deleteIngredient}
+                            style={{ color: "red", cursor: "pointer" }}
+                          >
+                            X
+                          </span>
+                        </td>
+                      </tr>
+                    ))}
+                    <tr></tr>
+                  </tbody>
+                </table>
+                <button onClick={saveRecipe}>Save Recipe to Library</button>
+              </>
+            ) : (
+              <div>todo: put instructions here</div>
+            )}
+
             {/* <form onSubmit={e=>e.preventDefault()}> */}
             <div className="form-group">
-              <label htmlFor="newIngredients"><br></br>Search New Ingredients to Add to Your Recipe Below:</label>
+              <label htmlFor="newIngredients">
+                <br></br>Search New Ingredients to Add to Your Recipe Below:
+              </label>
               <input
                 type="text"
                 className="form-control"

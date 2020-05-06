@@ -14,17 +14,17 @@ function Pricing() {
                     <div className="col-md-4">
                         <span className="fa-stack fa-4x"><i className="fas fa-circle fa-stack-2x text-primary"></i><i className="fas fa-user fa-stack-1x fa-inverse"></i></span>
                         <h4 className="my-3">Single User</h4>
-                        <p className="text-muted">Cost your recipes down to the gram.</p>
+                        <p className="text-muted">Free! We WANT you to reduce food waste! Limit is 20 recipes.</p>
                     </div>
                     <div className="col-md-4">
                         <span className="fa-stack fa-4x"><i className="fas fa-circle fa-stack-2x text-primary"></i><i className="fas fa-users fa-stack-1x fa-inverse"></i></span>
                         <h4 className="my-3">2-5 Users</h4>
-                        <p className="text-muted">Create an online database of all your store's recipes, and change the yield on demand.</p>
+                        <p className="text-muted">Pay a small fee to remove adds. Limit is 30 recipes.</p>
                     </div>
                     <div className="col-md-4">
                         <span className="fa-stack fa-4x"><i className="fas fa-circle fa-stack-2x text-primary"></i><i className="fas fa-infinity fa-stack-1x fa-inverse"></i></span>
                         <h4 className="my-3">Unlimited Users</h4>
-                        <p className="text-muted">Export your recipes to excel or invite your teammates with one click.</p>
+                        <p className="text-muted">Pay a fee, no adds, unlimited recipes.</p>
                     </div>
                 </div>
             </div>

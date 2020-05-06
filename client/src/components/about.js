@@ -4,26 +4,31 @@ function About() {
 
     return (
         <div>
-            <h1>ABOUT US</h1>
-                <br />
-            <div className="row">
-                <div className="col-sm-6">
-                    <div className="card">
-                        <div className="card-body">
-                            <h5 className="card-title">Title</h5>
-                            <p className="card-text">Text or an image about how our app is useful</p>
-                        </div>
-                    </div>
+           <section className="page-section bg-light" id="learn">
+            <div className="container">
+                <div className="text-center">
+                    <h2 className="section-heading text-uppercase">About</h2>
+                    <h3 className="section-subheading text-muted">Screenshots of functionality</h3>
                 </div>
-                <div className="col-sm-6">
-                    <div className="card">
-                        <div className="card-body">
-                            <h5 className="card-title">Title</h5>
-                            <p className="card-text">Text or an image about how our app is useful</p>
-                        </div>
+                <div className="row text-center">
+                    <div className="col-md-4">
+                        <span className="fa-stack fa-4x"><i className="fas fa-circle fa-stack-2x text-primary"></i><i className="fas fa-shopping-cart fa-stack-1x fa-inverse"></i></span>
+                        <h4 className="my-3">Create New Recipe</h4>
+                        <p className="text-muted">Cost your recipes down to the gram.</p>
+                    </div>
+                    <div className="col-md-4">
+                        <span className="fa-stack fa-4x"><i className="fas fa-circle fa-stack-2x text-primary"></i><i className="fas fa-laptop fa-stack-1x fa-inverse"></i></span>
+                        <h4 className="my-3">Store All Recipes</h4>
+                        <p className="text-muted">Create an online database of all your store's recipes, and change the yield on demand.</p>
+                    </div>
+                    <div className="col-md-4">
+                        <span className="fa-stack fa-4x"><i className="fas fa-circle fa-stack-2x text-primary"></i><i className="fas fa-lock fa-stack-1x fa-inverse"></i></span>
+                        <h4 className="my-3">Share Recipes With Your Team</h4>
+                        <p className="text-muted">Export your recipes to excel or invite your teammates with one click.</p>
                     </div>
                 </div>
             </div>
+        </section>
         </div>
     );
 }

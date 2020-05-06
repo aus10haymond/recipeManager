@@ -1,26 +1,72 @@
 import React, { useState, useEffect } from "react";
 
 import NavBar from "../components/navBar";
-import Sidebar from "../components/sideNav";
 import SideBar from "../components/sideNav";
+import API from "../utils/API";
+import ExportCSV from "../components/exportCSV";
 
-import API from "../utils/API"
 
 function Create() {
   //console.log("api key", process.env.FOOD_DATA_APIKEY)
 
   const [newInput, setNewInput] = useState("");
   const [ingredientRes, setIngredientRes] = useState([]);
+  const [currentIngredients, setCurrentIngredients] = useState([]);
 
-  useEffect(()=>{
-    if(newInput) {
-        API.getIngredients(newInput)
-        .then(res=>{
-            console.log(res.data.foods)
-            setIngredientRes(res.data.foods)
-        })
-    }   
-  },[newInput])
+  useEffect(() => {
+    if (newInput) {
+      API.getIngredients(newInput).then((res) => {
+        console.log(res.data.foods);
+        setIngredientRes(res.data.foods.slice(0, 20));
+      });
+    }
+  }, [newInput]);
+
+  const remakeIngredient = (ingredient) => {
+    let newIngredient = {
+      name: ingredient.description,
+      brand: ingredient.brandOwner,
+      nutritioninfo: ingredient.foodNutrients,
+      totalWeight: "",
+      totalCost: "",
+      weightInRecipe: ""
+    };
+
+    setCurrentIngredients([...currentIngredients, newIngredient]);
+  };
+
+  const addStuffToIngredient = event => {
+    let ingredientsCopy = [...currentIngredients];
+    let value = event.target.value;
+    let name = event.target.name;
+    let index = event.target.id;
+    console.log(value, name, index)
+
+    ingredientsCopy[index][name] = value
+    // ingredientsCopy[index]["totalWeight"]
+    // ingredientsCopy[index].totalWeight
+
+    setCurrentIngredients(ingredientsCopy);
+  }
+
+  //gonna be made in this card:
+  //list of ingredients including % of recipe by weight up to 100% (user adds these by gram or w/e)
+  //total cost of ingredients (add individually by ingredient as part of total bag/package) also per serving
+  //nutritional info per serving
+  //steps (one long string or individually by step one, two etc.)
+  //servings
+  //Models:
+  //Recipe.js
+  //Ingredient.js: name, brand, cost, all nutritional info, size/weight
+  //nutritioninfo[
+  //   {
+  //     nutrientName: String
+  //     unitName: String
+  //     value: Number
+  //   }
+  // ]
+
+  //Company/User: recipes array, name, ingredients array (all you've added, or that you've used)
 
   return (
     <div>
@@ -37,6 +83,63 @@ function Create() {
                 Create a new recipe and add it to your book.
               </h3>
             </div>
+            <ExportCSV csvData={currentIngredients} fileName={"exportedRecipe"} />
+            <table id="excelTable" className="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Brand</th>
+                  <th scope="col">Total Weight</th>
+                  <th scope="col">Total Cost</th>
+                  <th scope="col">Weight in Recipe (grams)</th>
+                  <th scope="col">Weight %</th>
+                  <th scope="col">Cost in Recipe</th>
+                </tr>
+              </thead>
+              <tbody>
+                {currentIngredients.map((ingredient, i) => (
+                  <tr scope="row" key={i}>
+                    <td>
+                      {ingredient.name}
+                    </td>
+                    <td>
+                      {ingredient.brand}
+                    </td>
+                    <td>
+                      <input
+                        id={i}
+                        name={"totalWeight"}
+                        value={currentIngredients[i].totalWeight}
+                        onChange={addStuffToIngredient}
+                      />
+                    </td>
+                    <td>
+                      <input
+                        id={i}
+                        name={"totalCost"}
+                        value={currentIngredients[i].totalCost}
+                        onChange={addStuffToIngredient}
+                      />
+                    </td>
+                    <td>
+                      <input
+                        id={i}
+                        name={"weightInRecipe"}
+                        value={currentIngredients[i].weightInRecipe}
+                        onChange={addStuffToIngredient}
+                      />
+                    </td>
+                    <td></td>
+                    <td>
+                    {currentIngredients[i].totalCost / currentIngredients[i].totalWeight * currentIngredients[i].weightInRecipe}
+                    </td>
+                  </tr>
+                ))}
+                <tr>
+
+                </tr>
+              </tbody>
+            </table>
             <form>
               <div className="form-group">
                 <label htmlFor="newIngredients">Search New Ingredients</label>
@@ -46,7 +149,7 @@ function Create() {
                   id="newIngredients"
                   placeholder="cheese"
                   value={newInput}
-                  onChange={event=>setNewInput(event.target.value)}
+                  onChange={(event) => setNewInput(event.target.value)}
                 />
               </div>
               {/* <div className="form-group">
@@ -76,10 +179,17 @@ function Create() {
               <button>Search</button>
             </form>
           </div>
+          {ingredientRes.map((ingredient) => (
+            <div>
+              <p>{ingredient.description}</p>
+              {ingredient.brandOwner && <p>Brand: {ingredient.brandOwner}</p>}
+              <button onClick={() => remakeIngredient(ingredient)}>
+                ADD INGREDIENT
+              </button>
+            </div>
+          ))}
         </section>
-        <pre>
-            {JSON.stringify(ingredientRes, 0, 2)}
-        </pre>
+        <pre>{/* {JSON.stringify(ingredientRes, 0, 2)} */}</pre>
       </div>
     </div>
   );

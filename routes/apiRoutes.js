@@ -1,11 +1,12 @@
-// const axios = require("axios");
 const db = require("../models");
-// const mongoose = require("mongoose");
 
 function apiRoutes(app) {
   // routes for user
   app.post("/signup", ({ body }, res) => {
-    db.User.create(body)
+    const user = new db.User(body);
+    user.generateHash(body.password);
+
+    db.User.create(user)
       .then(results => {
         res.json(results);
       })
@@ -24,7 +25,7 @@ function apiRoutes(app) {
       });
   });
 
-  
+
   // routes for ingreidents
   app.get("/all", (req, res) => {
     db.Ingredient.find({})

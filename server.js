@@ -1,6 +1,6 @@
 // this is where we want to require dependencies
 const express = require("express");
-const routes = require("./routes/apiRoutes");
+const routes = require("./routes/");
 const mongoose = require("mongoose");
 const app = express();
 

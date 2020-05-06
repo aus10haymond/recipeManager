@@ -107,7 +107,7 @@ function Create() {
                 Create a New Recipe
               </h2>
               <h3 className="section-subheading text-muted">
-                Create a new recipe and add it to your book.
+                Create a new recipe and add it to your library.
               </h3>
             </div>
             <ExportCSV
@@ -117,12 +117,12 @@ function Create() {
             <table id="excelTable" className="table table-hover">
               <thead>
                 <tr>
-                  <th scope="col">Name</th>
-                  <th scope="col">Brand</th>
-                  <th scope="col">Total Weight</th>
-                  <th scope="col">Total Cost</th>
+                  <th scope="col">Ingredient Name</th>
+                  <th scope="col">Ingredient Brand</th>
+                  <th scope="col">Ingredient Total Weight (grams)</th>
+                  <th scope="col">Ingredient Total Cost</th>
                   <th scope="col">Weight in Recipe (grams)</th>
-                  <th scope="col">Weight %</th>
+                  <th scope="col">Weight % in Recipe</th>
                   <th scope="col">Cost in Recipe</th>
                   <th></th>
                 </tr>
@@ -170,10 +170,10 @@ function Create() {
                 <tr></tr>
               </tbody>
             </table>
-            <button>Save</button>
+            <button>Save Recipe to Library</button>
             {/* <form onSubmit={e=>e.preventDefault()}> */}
             <div className="form-group">
-              <label htmlFor="newIngredients">Search New Ingredients</label>
+              <label htmlFor="newIngredients"><br></br>Search New Ingredients to Add to Your Recipe Below:</label>
               <input
                 type="text"
                 className="form-control"

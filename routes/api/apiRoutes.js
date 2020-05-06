@@ -1,8 +1,9 @@
-const db = require("../models");
+const db = require("../../models");
+const router = require("express").Router();
 
-function apiRoutes(app) {
+
   // routes for user
-  app.post("/signup", ({ body }, res) => {
+  router.post("/signup", ({ body }, res) => {
     const user = new db.User(body);
     user.generateHash(body.password);
 
@@ -15,7 +16,7 @@ function apiRoutes(app) {
       });
   });
 
-  app.post("/login", ({ body }, res) => {
+  router.post("/login", ({ body }, res) => {
     db.User.create(body)
       .then(results => {
         res.json(results);
@@ -27,7 +28,7 @@ function apiRoutes(app) {
 
 
   // routes for ingreidents
-  app.get("/all", (req, res) => {
+  router.get("/all", (req, res) => {
     db.Ingredient.find({})
       .then(results => {
         res.json(results);
@@ -37,7 +38,7 @@ function apiRoutes(app) {
       });
   });
 
-  app.post("/submit", ({ body }, res) => {
+  router.post("/submit", ({ body }, res) => {
     db.Ingredient.create(body)
       .then(results => {
         res.json(results);
@@ -47,7 +48,18 @@ function apiRoutes(app) {
       });
   });
 
-  app.get("/find/:id", (req, res) => {
+  //full route: /api/submit/many
+  router.post("/submit/many", ({ body }, res) => {
+    db.Ingredient.insertMany(body)
+      .then(results => {
+        res.json(results);
+      })
+      .catch(err => {
+        res.json(err);
+      });
+  });
+
+  router.get("/find/:id", (req, res) => {
     db.Ingredient.findOne({
       _id: req.params.id
     })
@@ -59,7 +71,7 @@ function apiRoutes(app) {
       });
   });
 
-  app.post("/update/:id", ({ body, params }, res) => {
+  router.post("/update/:id", ({ body, params }, res) => {
     db.Ingredient.findByIdAndUpdate(params.id, {
       $set: body
     })
@@ -71,7 +83,7 @@ function apiRoutes(app) {
       });
   });
 
-  app.delete("/delete/:id", (req, res) => {
+  router.delete("/delete/:id", (req, res) => {
     db.Ingredient.remove({
       _id: req.params.id
     })
@@ -83,7 +95,7 @@ function apiRoutes(app) {
       });
   });
 
-  app.delete("/clearall", (req, res) => {
+  router.delete("/clearall", (req, res) => {
     db.Ingredient.remove({})
       .then(dbRecipe => {
         res.json(dbRecipe);
@@ -92,6 +104,6 @@ function apiRoutes(app) {
         res.json(err);
       });
   });
-};
 
-module.exports = apiRoutes;
+
+module.exports = router;

@@ -1,99 +1,97 @@
-const axios = require("axios");
-const db = require("../../models");
-const mongoose = require("mongoose");
+const db = require("../models");
 
 function apiRoutes(app) {
-  app.get("/api/recipes/:recipe", function (req, res) {
-    // const recipe = req.params.recipe
-    // axios.get("https://api.spoonacular.com/recipes/search?apiKey=b3d34723f7fc4467aa5d1becb4b57db6&query=" + recipe).then(function (results) {
-    //   res.json(results.data);
-    // });
+  // routes for user
+  app.post("/signup", ({ body }, res) => {
+    const user = new db.User(body);
+    user.generateHash(body.password);
 
-  
+    db.User.create(user)
+      .then(results => {
+        res.json(results);
+      })
+      .catch(err => {
+        res.json(err);
+      });
+  });
+
+  app.post("/login", ({ body }, res) => {
+    db.User.create(body)
+      .then(results => {
+        res.json(results);
+      })
+      .catch(err => {
+        res.json(err);
+      });
   });
 
 
+  // routes for ingreidents
+  app.get("/all", (req, res) => {
+    db.Ingredient.find({})
+      .then(results => {
+        res.json(results);
+      })
+      .catch(err => {
+        res.json(err);
+      });
+  });
 
-  app.post("/api/ingredients", function (req, res) {
-     
-    
-    const newIngredient = {
-      name: req.body.name,
-      brand: req.body.brand,
-      cost: req.body.cost,
-      size_weight: req.body.size_weight
-    }
-    db.Ingredient.create(newIngredient).then(results => {
-  
-      const newNutritionInfo = {
-        nutrientName: req.body.nutrientName,
-        unitName: req.body.unitName,
-        value: req.body.value,
-      }
-      
-      db.Ingredient.findOneAndUpdate(
-        { _id: results._id },
-        { $push: { nutritioninfo: newNutritionInfo } },
-        function (error, success) {
-          if (error) {
-            console.log(error);
-          } else {
-            console.log(success);
-            res.json("success");
-          }
-        });
-      
+  app.post("/submit", ({ body }, res) => {
+    db.Ingredient.create(body)
+      .then(results => {
+        res.json(results);
+      })
+      .catch(err => {
+        res.json(err);
+      });
+  });
+
+  app.get("/find/:id", (req, res) => {
+    db.Ingredient.findOne({
+      _id: req.params.id
     })
-  })
+      .then(results => {
+        res.json(results);
+      })
+      .catch(err => {
+        res.json(err);
+      });
+  });
 
-  app.get("/api/ingredients", function (req, res) {
-    db.Ingredient.find().then(results => {
-      res.json(results);
+  app.post("/update/:id", ({ body, params }, res) => {
+    db.Ingredient.findByIdAndUpdate(params.id, {
+      $set: body
     })
-  })
+      .then(dbRecipe => {
+        res.json(dbRecipe);
+      })
+      .catch(err => {
+        res.json(err);
+      });
+  });
 
-  app.delete("/api/ingredients/:id", function (req, res) {
-    db.Ingredient.remove().then(results => {
-      res.json(results);
+  app.delete("/delete/:id", (req, res) => {
+    db.Ingredient.remove({
+      _id: req.params.id
     })
-  })
+      .then(dbRecipe => {
+        res.json(dbRecipe);
+      })
+      .catch(err => {
+        res.json(err);
+      });
+  });
 
-  app.put("/api/ingredients/:id", function (req, res) {
-
-    const newNutritionInfo = {
-      nutrientName: req.body.nutrientName,
-      unitName: req.body.unitName,
-      value: req.body.value,
-    }
-
-    const newIngredient = {
-      name: req.body.name,
-      brand: req.body.brand,
-      cost: req.body.cost,
-      size_weight: req.body.size_weight
-    }
-
-    const id = mongoose.Types.ObjectId(req.params.id)
-    db.Ingredient.update({
-      _id: id
-    }, newIngredient).then(results => {
-
-      db.Ingredient.findOneAndUpdate(
-        { _id: id },
-        { $push: { nutritioninfo: newNutritionInfo } },
-        function (error, success) {
-          if (error) {
-            console.log(error);
-          } else {
-            console.log(success);
-            res.json("success");
-          }
-        });
-    })
-
-
-
-  })
+  app.delete("/clearall", (req, res) => {
+    db.Ingredient.remove({})
+      .then(dbRecipe => {
+        res.json(dbRecipe);
+      })
+      .catch(err => {
+        res.json(err);
+      });
+  });
 };
 
 module.exports = apiRoutes;

@@ -5,11 +5,19 @@ const APIKEY = "vw219mUEcz9Pk54s1NFFPLqtqOjmP6OmI0MMga0t"
 
 export default {
 
-    getIngredients: function(query){
+    getIngredients: function (query) {
         return axios.get(`https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${APIKEY}&query=${query}`)
     },
 
-    postToDB: function(body){
+    postToDB: function (body) {
         return axios.post(`/api/ingredients`, body)
+    },
+
+    saveIngredients: function (data) {
+        return axios.post("/api/submit/many", data);
+    },
+    
+    getSavedIngredients: function () {
+        return axios.get("/api/all");
     }
 }

@@ -38,6 +38,17 @@ const router = require("express").Router();
       });
   });
 
+  router.get("/recipe/all", (req, res) => {
+    db.Recipe.find({})
+      .populate("ingredients")
+      .then(results => {
+        res.json(results);
+      })
+      .catch(err => {
+        res.json(err);
+      });
+  });
+
   router.post("/submit", ({ body }, res) => {
     db.Ingredient.create(body)
       .then(results => {
@@ -51,7 +62,20 @@ const router = require("express").Router();
   //full route: /api/submit/many
   router.post("/submit/many", ({ body }, res) => {
     db.Ingredient.insertMany(body)
-      .then(results => {
+      .then(ingredientResults => {
+
+        console.log(ingredientResults)
+        let idArr = ingredientResults.map(ingredient=>ingredient._id)
+        console.log(idArr);
+
+        return db.Recipe.create({
+          name: "",
+          directions: "",
+          ingredients: idArr
+        })
+      }
+      )
+      .then(moreResults=>{
         res.json(results);
       })
       .catch(err => {

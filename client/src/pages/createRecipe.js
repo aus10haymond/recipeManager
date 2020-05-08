@@ -79,6 +79,7 @@ function Create() {
 
   const saveRecipe = (event) => {
     event.preventDefault();
+    console.log("currentIngredients", currentIngredients)
     API.saveIngredients(currentIngredients)
       .then(res=>{
         console.log("did post")

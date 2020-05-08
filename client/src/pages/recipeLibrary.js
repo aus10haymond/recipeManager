@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 import NavBar from "../components/navBar";
 import RecipeCard from "../components/recipeCard";
@@ -6,6 +6,9 @@ import SideBar from "../components/sideNav";
 
 function Library() {
 
+    const [ingredientState, setIngredientState] = useState({
+        
+    })
     return(
         <div>
             <SideBar />

@@ -18,6 +18,6 @@ export default {
     },
 
     getSavedIngredients: function () {
-        return axios.get("/api/all");
+        return axios.get("/api/all/ingredients");
     }
 }

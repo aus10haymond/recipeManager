@@ -28,7 +28,7 @@ function Library() {
                             key={info._id}
                             name={info.name}
                             brand={info.brand}
-                            // nutritioninfo={info.nutritioninfo}
+                            nutritioninfo={info.nutritioninfo}
                             totalWeight={info.totalWeight}
                             totalCost={info.totalCost}
                             weightInRecipe={info.weightInRecipe}

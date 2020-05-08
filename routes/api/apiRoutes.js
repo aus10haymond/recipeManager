@@ -28,7 +28,7 @@ router.post("/login", ({ body }, res) => {
 
 
 // routes for ingreidents
-router.get("/all", (req, res) => {
+router.get("/all/ingredients", (req, res) => {
   db.Ingredient.find({})
     .then(results => {
       res.json(results);

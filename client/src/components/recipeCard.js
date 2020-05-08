@@ -11,7 +11,7 @@ function RecipeCard(props) {
                     <ul>
                         <h4>Ingredient: {props.name}</h4>
                         <h4>Brand: {props.brand}</h4>
-                        {/* <h4>Nutritional INfo: {props.nutritioninfo}</h4> */}
+                        <h4>Nutritional INfo: {props.nutritioninfo}</h4>
                         <h4>weight: {props.totalWeight}g</h4>
                         <h4>cost: ${props.totalCost}</h4>
                         <h4>recipe weight: {props.weightInRecipe}g</h4>

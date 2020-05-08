@@ -1,6 +1,6 @@
 import React from "react";
-import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
-import { Link, useLocation } from "react-router-dom";
+import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
+import { useLocation } from "react-router-dom";
 
 import "../assets/css/sideNav.css";
 

@@ -1,9 +1,9 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function NavBar() {
 
-    const location = useLocation();
+    
     // const link = document.getElementById("logout");
     // const locationUrl = location.pathname;
 

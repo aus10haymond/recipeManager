@@ -9,14 +9,14 @@ export default {
         return axios.get(`https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${APIKEY}&query=${query}`)
     },
 
-    postToDB: function (body) {
-        return axios.post(`/api/ingredients`, body)
-    },
+    // postToDB: function (body) {
+    //     return axios.post(`/api/ingredients`, body)
+    // },
 
     saveIngredients: function (data) {
         return axios.post("/api/submit/many", data);
     },
-    
+
     getSavedIngredients: function () {
         return axios.get("/api/all");
     }

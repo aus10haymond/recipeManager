@@ -4,11 +4,11 @@ const Schema = mongoose.Schema;
 const IngredientSchema = new Schema({
   name: { type: String },
   brand: { type: String },
-  cost: { type: String },
-  size_weight: { type: String },
-  nutrientName: { type: String },
-  unitName: { type: String },
-  value: { type: String },
+  nutritioninfo: { type: String },
+  totalWeight: { type: String },
+  totalCost: { type: String },
+  weightInRecipe: { type: String },
+  costInRecipe: { type: String }
 });
 
 const Ingredient = mongoose.model("Ingredient", IngredientSchema);

@@ -40,7 +40,7 @@ function Create() {
     let newIngredient = {
       name: ingredient.description,
       brand: ingredient.brandOwner,
-      nutritioninfo: ingredient.foodNutrients,
+      nutritioninfo: ingredient.foodNutrients.nutrientName,
       totalWeight: "",
       totalCost: "",
       weightInRecipe: "",
@@ -144,7 +144,7 @@ function Create() {
                   </thead>
                   <tbody>
                     {currentIngredients.map((ingredient, i) => (
-                      <tr scope="row" key={i}>
+                      <tr key={i}>
                         <td>{ingredient.name}</td>
                         <td>{ingredient.brand}</td>
                         <td>
@@ -235,7 +235,7 @@ function Create() {
             {/* </form> */}
           </div>
           {ingredientRes.map((ingredient) => (
-            <div>
+            <div key={ingredient._id}>
               <p>{ingredient.description}</p>
               {ingredient.brandOwner && <p>Brand: {ingredient.brandOwner}</p>}
               <button onClick={() => remakeIngredient(ingredient)}>

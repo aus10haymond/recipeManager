@@ -61,7 +61,7 @@ const router = require("express").Router();
 
   //full route: /api/submit/many
   router.post("/submit/many", ({ body }, res) => {
-    db.Ingredient.insertMany(body)
+    db.Ingredient.insertMany(body.ingredients)
       .then(ingredientResults => {
 
         console.log(ingredientResults)
@@ -69,8 +69,8 @@ const router = require("express").Router();
         console.log(idArr);
 
         return db.Recipe.create({
-          name: "",
-          directions: "",
+          name: body.name,
+          directions: body.directions,
           ingredients: idArr
         })
       }

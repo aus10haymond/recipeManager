@@ -23,14 +23,16 @@ function Library() {
             <div className="container">
             <NavBar />
                 <h1>Recipe Library</h1>                
+                {recipeRes.map((recipe)=> (
+                  <RecipeCard 
+                    name={recipe.name}
+                    ingredients={recipe.ingredients}
+                    directions={recipe.directions}
+                  />
+                ))}
                 
-                  <RecipeCard />
-                  <RecipeCard />
 
             </div>
-            <pre>
-                {JSON.stringify(recipeRes)}
-            </pre>
         </div>
     );
 }

@@ -4,16 +4,17 @@ import RecipeCard from "../components/recipeCard";
 import SideBar from "../components/sideNav";
 import API from "../utils/API";
 
+
 function Library() {
 
-    const [recipeInfo, setRecipeInfo] = useState();
+    const [recipeRes, setRecipeRes] = useState([]);
 
     useEffect(() => {
-        API.getSavedIngredients(recipeInfo).then((res) => {
-            console.log(res);
-            setRecipeInfo(res.data);
-        });
-    }, []);
+        API.getSavedRecipes().then(res => {
+            console.log(res.data)
+            setRecipeRes(res.data)
+        })
+    }, [])
 
     return (
         <div>
@@ -22,20 +23,20 @@ function Library() {
                 <NavBar />
                 <h1>Recipe Library</h1>
 
-                {recipeInfo &&
-                    recipeInfo.map(info => (
+                {recipeRes &&
+                    recipeRes.map(info => (
                         <RecipeCard
                             key={info._id}
                             name={info.name}
-                            brand={info.brand}
-                            nutritioninfo={info.nutritioninfo}
-                            totalWeight={info.totalWeight}
-                            totalCost={info.totalCost}
-                            weightInRecipe={info.weightInRecipe}
-                            costInRecipe={info.costInRecipe}
+                            directions={info.directions}
+                            ingredients={info.ingredients}
                         />
-                    ))}
+                    ))
+                }
             </div>
+            <pre>
+                {JSON.stringify(recipeRes)}
+            </pre>
         </div>
     );
 

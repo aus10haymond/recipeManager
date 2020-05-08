@@ -9,6 +9,8 @@ function Create() {
   //console.log("api key", process.env.FOOD_DATA_APIKEY)
 
   const [newInput, setNewInput] = useState("");
+  const [nameInput, setNameInput] = useState("");
+  const [directionsInput, setDirectionsInput] = useState("");
   const [ingredientRes, setIngredientRes] = useState([]);
   const [currentIngredients, setCurrentIngredients] = useState([]);
 
@@ -80,7 +82,13 @@ function Create() {
   const saveRecipe = (event) => {
     event.preventDefault();
     console.log("currentIngredients", currentIngredients)
-    API.saveIngredients(currentIngredients)
+    let data = {
+      name: nameInput,
+      ingredients: currentIngredients,
+      directions: directionsInput
+    }
+
+    API.saveIngredients(data)
       .then(res=>{
         console.log("did post")
         window.location.replace("/recipe/library")
@@ -128,6 +136,30 @@ function Create() {
               csvData={currentIngredients}
               fileName={"exportedRecipe"}
             />
+            <div className="form-group">
+              <label htmlFor="name">
+                <br></br>Recipe Name:
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="name"
+                placeholder="Enchiladas"
+                value={nameInput}
+                onChange={(event) => setNameInput(event.target.value)}
+              />
+              <label htmlFor="directions">
+                <br></br>Directions:
+              </label>
+              <textarea
+                type="text"
+                className="form-control"
+                id="directions"
+                placeholder="Cook it"
+                value={directionsInput}
+                onChange={(event) => setDirectionsInput(event.target.value)}
+              />
+            </div>
             {currentIngredients.length !== 0 ? (
               <>
                 <table id="excelTable" className="table table-hover">
@@ -185,7 +217,16 @@ function Create() {
                         </td>
                       </tr>
                     ))}
-                    <tr></tr>
+                    <tr>
+                      <td>Totals:</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>{currentIngredients.reduce((sum, selectedIngredient)=> sum + parseInt(selectedIngredient.weightInRecipe),0)}</td>
+                      <td></td>
+                      <td>{currentIngredients.reduce((sum, selectedIngredient)=> sum + selectedIngredient.costInRecipe,0)}</td>
+                      <td></td>
+                    </tr>
                   </tbody>
                 </table>
                 <button onClick={saveRecipe}>Save Recipe to Library</button>
@@ -208,30 +249,12 @@ function Create() {
                 onChange={(event) => setNewInput(event.target.value)}
               />
             </div>
-            {/* <div className="form-group">
-                      <label htmlFor="exampleFormControlSelect1">Example select</label>
-                      <select className="form-control" id="exampleFormControlSelect1">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                      </select>
-                    </div>
-                    <div className="form-group">
-                      <label htmlFor="exampleFormControlSelect2">Example multiple select</label>
-                      <select multiple className="form-control" id="exampleFormControlSelect2">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                      </select>
-                    </div>
+            {/* {
+                     
                     <div className="form-group">
                       <label htmlFor="exampleFormControlTextarea1">Example textarea</label>
                       <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    </div> */}
+                    </div> } */}
 
             {/* </form> */}
           </div>

@@ -191,7 +191,7 @@ function Create() {
                 <button onClick={saveRecipe}>Save Recipe to Library</button>
               </>
             ) : (
-              <div>todo: put instructions here</div>
+              <div>To create a new recipe to add to your library: search your ingredients below and click "add ingredient". Add your ingredient, its total weight, and total cost. Your ingredient will be stored in your inventory to be used again. When you are done, add the recipe to your library.  </div>
             )}
 
             {/* <form onSubmit={e=>e.preventDefault()}> */}

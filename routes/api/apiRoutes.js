@@ -51,7 +51,7 @@ router.get("/api/user_data", function (req, res) {
 });
 
 
-// ingredients routes
+// recipe routes
 router.post("/recipe/post", ({ body }, res) => {
   db.Recipe.create(body)
     .then(results => {

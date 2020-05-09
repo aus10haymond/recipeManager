@@ -20,19 +20,19 @@ function Contact() {
                             <div className="col-md-6">
                                 <form>
                                     <div className="grey-text">
-                                        <div classname="form-group">
+                                        <div className="form-group">
                                             <label>Your Name</label>
                                             <input className="form-control" type="text" placeholder="John Smith" />
                                         </div>
-                                        <div classname="form-group">
+                                        <div className="form-group">
                                             <label for="email">Email address</label>
                                             <input type="email" className="form-control" id="email" placeholder="name@example.com" />
                                         </div>
-                                        <div classname="form-group">
+                                        <div className="form-group">
                                             <label>Subject</label>
                                             <input className="form-control" type="text" placeholder="Table Scraps" />
                                         </div>
-                                        <div classname="form-group">
+                                        <div className="form-group">
                                             <label>Message</label>
                                             <textarea className="form-control" rows="4" placeholder="Your message here..."/>
                                         </div>

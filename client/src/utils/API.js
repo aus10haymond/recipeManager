@@ -12,5 +12,8 @@ export default {
     },
     getSavedIngredients: function(){
         return axios.get("/api/all");
+    },
+    getSavedRecipes: function(){
+        return axios.get("/api/recipe/all");
     }
 }

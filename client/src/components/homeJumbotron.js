@@ -12,7 +12,7 @@ function HomeJumbo() {
                 <a className="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#learn">Learn More</a>
                 <br />
                 <br />
-                <a className="btn btn-primary btn-xl text-uppercase" href="/recipe/create">Get Started</a>
+                {/* <a className="btn btn-primary btn-xl text-uppercase" href="/recipe/create">Get Started</a> */}
             </div>
         </header>
     );

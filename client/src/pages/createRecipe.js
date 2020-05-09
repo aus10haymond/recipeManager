@@ -132,10 +132,10 @@ function Create() {
                 Create a new recipe and add it to your library.
               </h3>
             </div>
-            <ExportCSV
+            {/* <ExportCSV
               csvData={currentIngredients}
               fileName={"exportedRecipe"}
-            />
+            /> */}
             <div className="form-group">
               <label htmlFor="name">
                 <br></br>Recipe Name:

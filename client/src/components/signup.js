@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import  { Link } from "react-router-dom";
+import API from "../utils/API";
 
 import NavBar from "../components/navBar";
 
@@ -17,8 +18,14 @@ function Signup() {
 
         if(email && password && confirmEmail === email && confirmPassword === password) {
             //api call
+            API.signUp(email, password).then((res) => {
+              alert("Successfully signed up!");
+              window.location.replace("/recipe/create")
+            });
+            console.log(email + " " + password)
             setEmail("");
             setPassword("");
+
         }
     }
 

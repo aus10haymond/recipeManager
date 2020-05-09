@@ -4,6 +4,14 @@ const routes = require("./routes");
 const mongoose = require("mongoose");
 const app = express();
 
+// ALL CODE ADDED FOR PASSPORT BELOW
+const passport = require("./config/passport-config");
+const session = require("express-session");
+app.use(session({ secret: "secret123", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+// passport code ends here
+
 // create a Port
 const PORT = process.env.PORT || 3001;
 

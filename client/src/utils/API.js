@@ -15,5 +15,14 @@ export default {
     },
     getSavedRecipes: function(){
         return axios.get("/api/recipe/all");
+    },
+    getUser: function(){
+        return axios.get("/api/user_data");
+    },
+    signUp: function(data){
+        return axios.post("/api/signup", data);
+    },
+    login: function(data){
+        return axios.post("/api/login", data);
     }
 }

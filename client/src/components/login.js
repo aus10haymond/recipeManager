@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import NavBar from "../components/navBar";
 import { Link } from "react-router-dom";
+import API from "../utils/API";
 
 function Login() {
 
@@ -14,6 +15,10 @@ function Login() {
 
         if(email && password) {
             //api call
+            API.login(email, password).then((res) => {
+              alert("Successfully logged in!");
+              window.location.replace("/recipe/create")
+            });
             setEmail("");
             setPassword("");
         }

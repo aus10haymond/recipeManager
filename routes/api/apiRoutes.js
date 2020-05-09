@@ -4,7 +4,7 @@ const passport = require("../../config/passport-config");
 
 
 // PASSPORT/user routes 
-router.post("/signup", ({ body }, res) => {
+router.post("/api/signup", ({ body }, res) => {
   const user = new db.User(body);
   user.generateHash(body.password);
   user.validPassword(body.password);
@@ -12,15 +12,15 @@ router.post("/signup", ({ body }, res) => {
   db.User.create(user)
     .then(results => {
       res.json(results);
-      res.redirect('/login')
+      res.redirect('/api/login')
     })
     .catch(err => {
       res.json(err);
-      res.redirect('/signup')
+      res.redirect('/api/signup')
     });
 });
 
-router.post("/login", passport.authenticate("local"), ({ body }, res) => {
+router.post("/api/login", passport.authenticate("local"), ({ body }, res) => {
   db.User.create(body)
     .then(results => {
       res.json(results);
@@ -31,7 +31,7 @@ router.post("/login", passport.authenticate("local"), ({ body }, res) => {
 });
 
 // link this to log out button in front end.
-router.get("/logout", function (req, res) {
+router.get("/api/logout", function (req, res) {
   req.logout();
   res.redirect("/");
 });

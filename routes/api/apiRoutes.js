@@ -99,8 +99,8 @@ const router = require("express").Router();
     db.Ingredient.findByIdAndUpdate(params.id, {
       $set: body
     })
-      .then(dbRecipe => {
-        res.json(dbRecipe);
+      .then(results => {
+        res.json(results);
       })
       .catch(err => {
         res.json(err);
@@ -111,8 +111,8 @@ const router = require("express").Router();
     db.Ingredient.remove({
       _id: req.params.id
     })
-      .then(dbRecipe => {
-        res.json(dbRecipe);
+      .then(results => {
+        res.json(results);
       })
       .catch(err => {
         res.json(err);
@@ -121,8 +121,8 @@ const router = require("express").Router();
 
   router.delete("/clearall", (req, res) => {
     db.Ingredient.remove({})
-      .then(dbRecipe => {
-        res.json(dbRecipe);
+      .then(results => {
+        res.json(results);
       })
       .catch(err => {
         res.json(err);

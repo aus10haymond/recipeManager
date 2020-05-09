@@ -1,4 +1,5 @@
 import React from "react";
+import ExportCSV from "./exportCSV";
 
 function RecipeCard(props) {
   return (
@@ -58,6 +59,10 @@ function RecipeCard(props) {
           <h4>Instructions</h4>
           <p>{props.directions}</p>
         </div>
+        <ExportCSV
+              csvData={props.ingredients}
+              fileName={"exportedRecipe"}
+            />
       </div>
       <br />
     </div>

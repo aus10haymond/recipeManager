@@ -12,7 +12,6 @@ React, Bootstrap4, CSS3, Javascript, jQuery, Axios, NodeJS, Express, MongoDB, Mo
 
 ### How to Use:
 1) First, create an account and then login.
-![search](ex1.png)
 2) Once logged in, recipe page will be displayed which allows for naming the recipe, listing the directions, and searching any ingredient. 
 3) User must input ingredient cost along with weight(grams).
 4) After clicking "Save Recipe to Library", user may view all recipes in their Recipe Library.
